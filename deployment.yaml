@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: 2048-game-deployment
+  labels:
+    app: 2048-game
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: 2048-game
+  template:
+    metadata:
+      labels:
+        app: 2048-game
+    spec:
+      containers:
+      - name: 2048-game
+        image: yatingambhir/2048-docker-k8:latest
+        ports:
+        - containerPort: 80
